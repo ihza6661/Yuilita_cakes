@@ -7,6 +7,8 @@ import RelatedProducts from '../components/RelatedProducts';
 const Product = () => {
 
     const { productId } = useParams();
+    console.log(productId);
+
     const { products, currency, addToCart } = useContext(ShopContext);
     const [productData, setProductData] = useState(false);
     const [image, setImage] = useState('');

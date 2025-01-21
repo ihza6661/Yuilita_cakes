@@ -12,7 +12,7 @@ const Collection = () => {
     const [category, setCategory] = useState([]);
     const [subCategory, setSubCategory] = useState([]);
     const [sortType, setSortType] = useState('relevent');
-    const [filterProducts, setFilterProducts] = useState(products);
+    const [filterProducts, setFilterProducts] = useState([]);
     const [showFilter, setShowFilter] = useState(false); // Toggle filter visibility for small screens
 
     const { setShowSearch } = useContext(ShopContext);
@@ -146,10 +146,16 @@ const Collection = () => {
                     </select>
                 </div>
 
+                {/* Map Products */}
+
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6">
-                    {filterProducts.map((item) => (
-                        <ProductItem key={item._id} {...item} />
-                    ))}
+                    {
+                        filterProducts.map((item, index) => (
+                            <ProductItem key={index} name={item.name}
+                                id={item._id} price={item.price}
+                                image={item.image} />
+                        ))
+                    }
                 </div>
             </div>
         </div>

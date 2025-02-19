@@ -12,20 +12,20 @@ const LatestCollection = () => {
     }, [products]);
 
     return (
-        <div className="my-10">
-            <div className="text-center py-8 text-3xl">
-                <Title text1={'PRODUK'} text2={'TERBARU'} />
-                <p className="w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam id saepe cum totam obcaecati odit dolorum.
+        <div className="my-10 bg-pink-50 py-10 rounded-lg">
+            <div className="text-center py-6">
+                <Title text1={'🍰 PRODUK'} text2={'TERBARU 🎂'} />
+                <p className="w-3/4 mx-auto text-sm sm:text-base text-pink-700 font-medium">
+                    Temukan koleksi terbaru dari kue lezat kami. Manjakan diri Anda dengan rasa yang istimewa! 💕
                 </p>
             </div>
 
             {/* Rendering products */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 px-4">
                 {latestProducts.map((item, index) => (
                     <div
                         key={index}
-                        className="transform hover:scale-105 transition-transform duration-300 ease-in-out"
+                        className="transform hover:scale-105 transition-transform duration-300 ease-in-out bg-white rounded-xl p-4 shadow-md"
                     >
                         <ProductItem
                             id={item._id}

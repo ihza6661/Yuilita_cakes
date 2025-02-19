@@ -20,7 +20,7 @@ import { ScrollToTop } from './components/ScrollToTop';
 
 const App = () => {
   return (
-    <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+    <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] bg-pink-50'>
       <ToastContainer />
       <Navbar />
       <SearchBar />

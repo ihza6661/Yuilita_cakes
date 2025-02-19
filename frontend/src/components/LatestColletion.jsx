@@ -12,7 +12,7 @@ const LatestCollection = () => {
     }, [products]);
 
     return (
-        <div className="my-10 bg-pink-50 py-10 rounded-lg">
+        <div className="my-10 py-10 rounded-lg">
             <div className="text-center py-6">
                 <Title text1={'🍰 PRODUK'} text2={'TERBARU 🎂'} />
                 <p className="w-3/4 mx-auto text-sm sm:text-base text-pink-700 font-medium">
@@ -25,7 +25,7 @@ const LatestCollection = () => {
                 {latestProducts.map((item, index) => (
                     <div
                         key={index}
-                        className="transform hover:scale-105 transition-transform duration-300 ease-in-out bg-white rounded-xl p-4 shadow-md"
+                        className="transform hover:scale-105 transition-transform duration-300 ease-in-out bg-pink-100 rounded-xl p-4 shadow-md"
                     >
                         <ProductItem
                             id={item._id}

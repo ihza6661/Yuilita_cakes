@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import Title from '../components/Title';
 import CartTotal from '../components/CartTotal';
-import { assets } from '../assets/assets';
 import { ShopContext } from '../context/ShopContext';
 import { toast } from 'react-toastify';
 
@@ -64,23 +63,26 @@ const PlaceOrder = () => {
     };
 
     return (
-        <form onSubmit={onSubmitHandler} className='flex flex-col sm:flex-row justify-between gap-6 pt-36 min-h-screen bg-[#FFF0F5] border-t p-6'>
-            <div className="flex flex-col gap-4 w-full sm:max-w-[480px] bg-white p-6 rounded-lg shadow-lg border border-pink-200">
+        <form onSubmit={onSubmitHandler} className='flex flex-col sm:flex-row justify-center gap-6 pt-28 min-h-screen bg-[#FFF0F5] border-t p-6'>
+            <div className="flex flex-col gap-4 w-full sm:max-w-[480px] max-h-[400px] bg-pink-100 p-6 rounded-lg shadow-lg border border-pink-200">
                 <Title text1={'Informasi'} text2={'Pengiriman'} />
                 <div className="flex gap-3">
-                    <input required onChange={onChangeHandler} name='firstName' value={formData.firstName} className='border rounded-md p-2 w-full focus:outline-pink-400' type="text" placeholder='Nama' />
-                    <input required onChange={onChangeHandler} name='lastName' value={formData.lastName} className='border rounded-md p-2 w-full focus:outline-pink-400' type="text" placeholder='Nama Akhir' />
+                    <input required onChange={onChangeHandler} name='firstName' value={formData.firstName} className='border border-pink-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-pink-400 bg-pink-100' type="text" placeholder='Nama' />
+                    <input required onChange={onChangeHandler} name='lastName' value={formData.lastName} className='border border-pink-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-pink-400 bg-pink-100' type="text" placeholder='Nama Akhir' />
                 </div>
-                <input required onChange={onChangeHandler} name='email' value={formData.email} className='border rounded-md p-2 w-full focus:outline-pink-400' type="email" placeholder='Email' />
-                <input required onChange={onChangeHandler} name='alamat' value={formData.alamat} className='border rounded-md p-2 w-full focus:outline-pink-400' type="text" placeholder='Alamat' />
+                <input required onChange={onChangeHandler} name='email' value={formData.email} className='border border-pink-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-pink-400 bg-pink-100' type="email" placeholder='Email' />
+                <input required onChange={onChangeHandler} name='alamat' value={formData.alamat} className='border border-pink-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-pink-400 bg-pink-100' type="text" placeholder='Alamat' />
                 <div className="flex gap-3">
-                    <input required onChange={onChangeHandler} name='city' value={formData.city} className='border rounded-md p-2 w-full focus:outline-pink-400' type="text" placeholder='Kota' />
-                    <input required onChange={onChangeHandler} name='state' value={formData.state} className='border rounded-md p-2 w-full focus:outline-pink-400' type="text" placeholder='Provinsi' />
+                    <input required onChange={onChangeHandler} name='city' value={formData.city} className='border border-pink-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-pink-400 bg-pink-100' type="text" placeholder='Kota' />
+                    <input required onChange={onChangeHandler} name='state' value={formData.state} className='border border-pink-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-pink-400 bg-pink-100' type="text" placeholder='Provinsi' />
                 </div>
-                <input required onChange={onChangeHandler} name='phone' value={formData.phone} className='border rounded-md p-2 w-full focus:outline-pink-400' type="number" placeholder='Nomor HP' />
+                <input required onChange={onChangeHandler} name='phone' value={formData.phone} className='border border-pink-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-pink-400 bg-pink-100' type="number" placeholder='Nomor HP' />
             </div>
 
-            <div className="mt-8 w-full sm:max-w-[450px] bg-white p-6 rounded-lg shadow-lg border border-pink-200">
+
+
+            <div className="w-full sm:max-w-[450px] max-h-[400px] bg-pink-100 p-6 rounded-lg shadow-lg border border-pink-200 overflow-auto">
+
                 <CartTotal />
                 <Title text1={'METODE'} text2={'PEMBAYARAN'} />
                 <div className="flex gap-3 flex-col mt-4">

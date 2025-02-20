@@ -50,3 +50,22 @@ li {
     color: black;
   }
 }
+
+.custom-toast-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* Prevents blocking interactions */
+}
+
+.custom-toast {
+  pointer-events: all; /* Allows interaction with the toast */
+  background-color: #ff4d6d !important; /* Custom background */
+  color: white !important;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 10px;
+  text-align: center;
+}

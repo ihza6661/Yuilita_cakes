@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { ShopContext } from '../context/ShopContext';
 import { assets } from '../assets/assets';
 import RelatedProducts from '../components/RelatedProducts';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Product = () => {
     const { productId } = useParams();
@@ -10,6 +12,26 @@ const Product = () => {
     const [productData, setProductData] = useState(null);
     const [image, setImage] = useState('');
     const [size, setSize] = useState('');
+
+    const notify = () => toast.success("Added to cart!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        style: {
+            backgroundColor: "#ffccd5", // Pink background
+            color: "#00000", // White text
+            fontWeight: "normal",
+            fontSize: "16px",
+            borderRadius: "8px",
+            border: "2px solid white" // White border
+        }
+    });
+
+
 
     useEffect(() => {
         const product = products.find(item => item._id === productId);
@@ -21,6 +43,8 @@ const Product = () => {
 
     return productData ? (
         <div className='border-t-2 pt-36 transition-opacity ease-in duration-500 opacity-100 bg-pink-50'>
+            <ToastContainer /> {/* Add ToastContainer here */}
+
             {/* Product Data */}
             <div className='flex flex-col sm:flex-row gap-12 sm:gap-16 max-w-6xl mx-auto px-4'>
                 {/* Product Images */}
@@ -40,6 +64,7 @@ const Product = () => {
                         <img className='w-full h-auto rounded-lg shadow-md' src={image} alt='Cake' />
                     </div>
                 </div>
+
                 {/* Product Info */}
                 <div className='flex-1'>
                     <h1 className='font-bold text-3xl text-pink-700'>{productData.name}</h1>
@@ -59,15 +84,20 @@ const Product = () => {
                                 <button
                                     key={index}
                                     onClick={() => setSize(item)}
-                                    className={`py-2 px-4 rounded-full border border-pink-300 bg-white text-pink-600 font-medium ${item === size ? 'bg-pink-600 text-black' : ''} transition`}
+                                    className={`py-2 px-4 rounded-full border border-pink-300 font-medium transition 
+        ${item === size ? 'bg-pink-600 text-white' : 'bg-white text-pink-600'}`}
                                 >
                                     {item}
                                 </button>
+
                             ))}
                         </div>
                     </div>
                     <button
-                        onClick={() => addToCart(productData._id, size)}
+                        onClick={() => {
+                            addToCart(productData._id, size);
+                            notify(); // Call notify function here
+                        }}
                         className='bg-pink-500 text-white px-8 py-3 text-sm font-bold rounded-full shadow-lg hover:bg-pink-600 transition'>
                         Add to Cart
                     </button>
@@ -78,6 +108,7 @@ const Product = () => {
                     </div>
                 </div>
             </div>
+
             {/* Description & Reviews Section */}
             <div className='mt-20 max-w-6xl mx-auto px-4'>
                 <div className='flex border-b'>
@@ -89,6 +120,7 @@ const Product = () => {
                     <p>Perfect for birthdays, weddings, or any sweet celebration!</p>
                 </div>
             </div>
+
             {/* Related Products */}
             <RelatedProducts category={productData.category} subCategory={productData.subCategory} />
         </div>

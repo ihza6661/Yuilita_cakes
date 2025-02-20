@@ -61,9 +61,9 @@ const About = () => {
             </div>
 
             {/* Locations Grid */}
-            <div className="flex flex-col md:flex-row flex-wrap justify-center gap-6 text-sm mb-20">
+            <div className="w-full flex flex-col md:flex-row flex-wrap justify-center items-center gap-6 text-sm mb-20">
                 {locations.map(({ city, location, direction }, index) => (
-                    <div key={index} className="border-4 border-pink-300 rounded-2xl shadow-lg px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-4 max-w-xs">
+                    <div key={index} className="border-4 border-pink-300 rounded-2xl shadow-lg px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-4 max-w-xs sm:w-auto">
                         <Title text1={'KOTA'} text2={city} />
                         <b>Martadinata<br />Jl. LLRE Martadinata / Jl. Riau No. 154</b>
                         <p className="text-gray-600">
@@ -76,6 +76,7 @@ const About = () => {
                     </div>
                 ))}
             </div>
+
 
             {/* Newsletter Box */}
             <NewsletterBox />
